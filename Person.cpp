@@ -7,8 +7,11 @@
 
 #include "Person.h"
 
-Person::Person() {
-
+Person::Person(string name, string address) {
+	name_ = name; 
+	address_ = address; 
+	loyalty_cards = NULL; 
+	credit_cards = NULL; 
 }
 
 
@@ -17,5 +20,6 @@ Person::~Person() {
 }
 
 int main () {
+
 	cout << "Started writing program" << endl; 
 }

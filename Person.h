@@ -11,6 +11,9 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdarg.h>
+#include "Cards.h"
+
+using namespace std; 
 
 #define GROCERIES 1
 #define SHOPPING 2
@@ -20,22 +23,15 @@
 #define LIBRARY 6
 #define POST_OFFICE 7
 
-struct card_node {
-	string place;
-	struct card_node* next;
-	struct card_node* prev;
-};
-
-using namespace std; 
 
 class Person {
 	string name_; 
 	string address_; 
-	card_node * loyalty_cards_start; 
-	card_node * credit_cards_start; 
+	Cards * loyalty_cards; 
+	Cards * credit_cards; 
 
 public:
-	Person(); 
+	Person(string, string); 
 	~Person(); 
 };
 
