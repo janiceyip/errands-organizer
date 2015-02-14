@@ -1,12 +1,12 @@
 /*
- * Errand.h
+ * Cards.h
  *
  *  Created on: Feb 10, 2015
  *      Authors: James Chin, Janice Yip
  */
 
-#ifndef ERRAND_H_
-#define ERRAND_H_
+#ifndef CARDS_H_
+#define CARDS_H_
 
 #include <iostream>
 #include <stdio.h>
@@ -22,16 +22,22 @@
 
 using namespace std; 
 
-class Errand {
-	int priority_; 
-	int hours_;
-	int minutes_;  
-	int type_; 
-
-public:
-	Errand(); 
-	Errand(int priority, int type);
-	~Errand(); 
+struct card_node {
+	string place;
+	struct card_node* next;
+	struct card_node* prev;
 };
 
-#endif /* ERRAND_H_ */
+class Cards {
+	card_node * start; 
+	card_node * end; 
+
+public:
+	Cards(); 
+	~Cards();
+	void add(string);
+	// float pop();
+	void printCards(); 
+};
+
+#endif /* CARDS_H_ */

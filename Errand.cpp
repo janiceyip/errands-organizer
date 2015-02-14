@@ -6,14 +6,16 @@
  */
 
 #include "Errand.h"
-using namespace std;
 
 Errand::Errand() {
 	priority_ = -1; 
+	hours_ = 0; 
+	minutes_ = 0; 
 }
 
-Errand::Errand(int priority) {
+Errand::Errand(int priority, int type) {
 	priority_ = priority; 
+	type_ = type; 
 }
 
 Errand::~Errand() {
