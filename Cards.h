@@ -30,13 +30,12 @@ struct card_node {
 
 class Cards {
 	card_node * start; 
-	card_node * end; 
 
 public:
 	Cards(); 
 	~Cards();
 	void add(string);
-	// float pop();
+	void remove(string); 
 	void printCards(); 
 };
 
