@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D04199B51A8FF4670082060E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D04199B41A8FF4670082060E /* main.cpp */; };
 		D04199BD1A8FF4950082060E /* place.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D04199BC1A8FF4950082060E /* place.cpp */; };
+		D04BB62E1A9D2F9700E4994B /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D04BB62C1A9D2F9700E4994B /* Time.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		D04199B41A8FF4670082060E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D04199BB1A8FF4950082060E /* place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = place.h; path = ../../place.h; sourceTree = "<group>"; };
 		D04199BC1A8FF4950082060E /* place.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = place.cpp; path = ../../place.cpp; sourceTree = "<group>"; };
+		D04BB62C1A9D2F9700E4994B /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Time.cpp; path = ../../Time.cpp; sourceTree = "<group>"; };
+		D04BB62D1A9D2F9700E4994B /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Time.h; path = ../../Time.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				D04199B41A8FF4670082060E /* main.cpp */,
 				D04199BB1A8FF4950082060E /* place.h */,
 				D04199BC1A8FF4950082060E /* place.cpp */,
+				D04BB62C1A9D2F9700E4994B /* Time.cpp */,
+				D04BB62D1A9D2F9700E4994B /* Time.h */,
 			);
 			path = "errands-organizer-jc";
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D04BB62E1A9D2F9700E4994B /* Time.cpp in Sources */,
 				D04199B51A8FF4670082060E /* main.cpp in Sources */,
 				D04199BD1A8FF4950082060E /* place.cpp in Sources */,
 			);
@@ -238,6 +244,7 @@
 				D04199BA1A8FF4670082060E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
