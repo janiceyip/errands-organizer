@@ -13,16 +13,6 @@
 #include <stdarg.h>
 #include "Cards.h"
 
-using namespace std; 
-
-#define GROCERIES 1
-#define SHOPPING 2
-#define RESTAURANT_EATING 3
-#define LAUNDRY 4
-#define DRY_CLEANING 5
-#define LIBRARY 6
-#define POST_OFFICE 7
-
 
 class Person {
 	string name_; 

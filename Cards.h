@@ -11,16 +11,8 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdarg.h>
+#include "errands_org_globals.h" 
 
-#define GROCERIES 1
-#define SHOPPING 2
-#define RESTAURANT_EATING 3
-#define LAUNDRY 4
-#define DRY_CLEANING 5
-#define LIBRARY 6
-#define POST_OFFICE 7
-
-using namespace std; 
 
 struct card_node {
 	string place;
