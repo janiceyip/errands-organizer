@@ -19,6 +19,22 @@ enum errandType {
 	_errands_org_library, 
 	_errands_org_post_office, 
 	_errands_org_size
-}; 
+};
+
+enum placeNames {
+    _errands_pl_home,
+    _errands_pl_coop,
+    _errands_pl_boloco,
+    _errands_pl_walmart,
+    _errands_pl_baker,
+    _errands_pl_hanover_post_office,
+    _errands_pl_size,
+};
+
+enum placeType {
+    _errands_plType_restaurant,
+    _errands_plType_store,
+    _errands_plType_supermarket
+};
 
 #endif /* ERRANDS_ORG_GLOBALS_H_ */

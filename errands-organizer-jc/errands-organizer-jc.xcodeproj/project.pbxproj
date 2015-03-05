@@ -31,6 +31,7 @@
 		D04199BC1A8FF4950082060E /* place.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = place.cpp; path = ../../place.cpp; sourceTree = "<group>"; };
 		D04BB62C1A9D2F9700E4994B /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Time.cpp; path = ../../Time.cpp; sourceTree = "<group>"; };
 		D04BB62D1A9D2F9700E4994B /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Time.h; path = ../../Time.h; sourceTree = "<group>"; };
+		D04BB62F1A9D34D300E4994B /* errands_org_globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = errands_org_globals.h; path = ../../errands_org_globals.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 				D04199BC1A8FF4950082060E /* place.cpp */,
 				D04BB62C1A9D2F9700E4994B /* Time.cpp */,
 				D04BB62D1A9D2F9700E4994B /* Time.h */,
+				D04BB62F1A9D34D300E4994B /* errands_org_globals.h */,
 			);
 			path = "errands-organizer-jc";
 			sourceTree = "<group>";

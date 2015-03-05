@@ -12,9 +12,13 @@
 #include <stdio.h>
 #include <iostream>
 #include <map>
+#include "errands_org_globals.h"
 using namespace std;
-
-typedef enum {RESTAURANT, STORE, SUPERMARKET} placeType;        // change enum to be __myMapPck_North
+    struct node {
+        int openHr;
+        int closeHr;
+        int open;
+    };
 
 class Place {
 private:
@@ -22,15 +26,10 @@ private:
     placeType place;
     string placeName;
     string address;
-    struct node {
-        int openHr;
-        int closeHr;
-        int open;
-    };
     std::map<string, node> operatingHours;
 public:
     Place();
-    Place(int index, placeType placeTypeIn, string placeNameIn, string addressIn, map<string, node>* operatingHoursIn);
+    Place(int index, placeType placeTypeIn, string placeNameIn, string addressIn, map<string, node> operatingHoursIn);
     ~Place();
     void toString();
 };
