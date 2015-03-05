@@ -7,10 +7,6 @@
 //
 
 #include "place.h"
-#include <iostream>
-#include <map>
-#include "errands_org_globals.h"
-using namespace std;
 
 Place::Place() {
     placeIndex = 0;
@@ -117,7 +113,7 @@ void Place::toString(){
         cout << "Sunday Opening hours: " ;
         cout << operatingHours["SUN"].openHr << endl;
         cout << "Sunday Closing hours: ";
-        cout << operatingHours["SUN"].closeHr << endl;\
+        cout << operatingHours["SUN"].closeHr << endl;
     }
     else {
         cout << "Closed on Sunday!";
