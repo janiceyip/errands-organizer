@@ -29,6 +29,7 @@ public:
     int numPlaces();            // return # places in adjacency matrix
     string toString(placeNames& a);
     placeNames setPlace(string a);
+    void printTime(); 
 };
 
 #endif /* defined(__errands_organizer_jc__Time__) */

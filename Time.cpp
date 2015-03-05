@@ -41,8 +41,17 @@ Time::Time() {
 
 Time::Time(const Time& a) {
     int i = 0;
-    while (i < (_errands_pl_size*_errands_pl_size)/2 -1) {
+    // while (i < (_errands_pl_size*_errands_pl_size)/2 -1) {
+    while (i < 21) {
         travelTime[i] = a.travelTime[i];
+        i++;
+    }
+}
+
+void Time::printTime() {
+    int i = 0; 
+    while (i < 21) {
+        cout << i << ": " << travelTime[i] << endl;
         i++;
     }
 }
@@ -130,4 +139,4 @@ placeNames Time::setPlace(string select) {       // convert string to placeName
     }
 }
 
-
+// int main() {}
