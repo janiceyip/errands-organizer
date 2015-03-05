@@ -46,8 +46,26 @@ int main(int argc, const char * argv[]) {
     placeNames end = _errands_pl_home;
     int newTime;
     Time t;             // construct adjacency matrix t
-    cout << "Travel time between" + t.toString(start)+ " and " + t.toString(end) + " : ";
+    cout << "Travel time between " + t.toString(start)+ " and " + t.toString(end) + " : ";
     cout << t.getTime(start, end) << endl;
+
+    placeNames start1 = _errands_pl_walmart;
+    placeNames end1 = _errands_pl_hanover_post_office;
+    //Time t;             // construct adjacency matrix t
+    cout << "Travel time between " + t.toString(start1)+ " and " + t.toString(end1) + " : ";
+    cout << t.getTime(start1, end1) << endl;
+
+    cout << "Travel time between " + t.toString(end1)+ " and " + t.toString(start1) + " : ";
+    cout << t.getTime(start1, end1) << endl;
+    
+    placeNames start2 = _errands_pl_baker;
+    placeNames end2 = _errands_pl_hanover_post_office;
+    //Time t;             // construct adjacency matrix t
+    cout << "Travel time between " + t.toString(start2)+ " and " + t.toString(end2) + " : ";
+    cout << t.getTime(start2, end2) << endl;
+
+    cout << "Travel time between " + t.toString(end2)+ " and " + t.toString(start2) + " : ";
+    cout << t.getTime(start2, end2) << endl;
     
     return 0;
 }
