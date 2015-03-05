@@ -15,7 +15,9 @@
 #include <cfloat>
 #include <map>
 #include <set>
+
 #include "errands_org_globals.h"
+#include "Time.h"
 
 using namespace std; 
 
@@ -40,7 +42,7 @@ class Graph {
 public:
 	Graph(); 
 	~Graph();
-	void add_vertex(string, int, int);
+	void add_vertex(Time, string, int, int);
 	void remove_vertex(string); 
 	place_vertex new_vertex(string, int, int); 
 	void getOrder(); 

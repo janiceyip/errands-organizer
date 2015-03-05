@@ -6,6 +6,8 @@
  */
 
 #include "Graph.h"
+#include "Time.h"
+#include "Time.cpp"
 
 Graph::Graph() {
 
@@ -16,14 +18,24 @@ Graph::~Graph() {
 
 }
 
-void Graph::add_vertex(string location, int visited, int time_to){
-	place_vertex v = new_vertex(location, visited, time_to); 
+void Graph::add_vertex(Time t, string location, int visited, int time_to){
 	pair< set<place_vertex>::iterator,bool> ret;
-	set<place_vertex> s;
+	set<place_vertex> s; 
+	placeNames location_name_1 = t.setPlace(location); 
+	int time_between; 
+		
 
 	//iterate over graph, adding the vertex to each of the adjacency lists 
 	for(auto iter = graph_container.begin(); iter != graph_container.end(); iter++) {
 		
+		//look up the time/distance between the places 
+		placeNames location_name_2 = t.setPlace(iter->first._location); 
+		time_between = t.getTime(location_name_1, location_name_2); 
+
+		cout << "time between " << location << " and " << iter->first._location << " is " << time_between << endl;
+
+		place_vertex v = new_vertex(location, visited, time_between); 
+
 		ret = iter->second.insert(v); 
 		// if (ret.second == false) 
 		// 	cout << "false" << endl;
@@ -33,6 +45,13 @@ void Graph::add_vertex(string location, int visited, int time_to){
 		//insert the key vertices into a set 
 		s.insert(iter->first); 
 	}
+	
+	//home to new place
+
+	placeNames location_name_2 = t.setPlace("Home"); 
+	time_between = t.getTime(location_name_1, location_name_2); 
+
+	place_vertex v = new_vertex(location, visited, time_between); 
 	
 	pair<map <place_vertex, set<place_vertex> >::iterator,bool> ret2; 
 	ret2 = graph_container.insert(pair <place_vertex, set<place_vertex> >(v, s)); 
@@ -90,6 +109,7 @@ void Graph::printGraph() {
 	}
 }
 
+
 void Graph::getOrder() {
 	float time_to = FLT_MAX; 
 	string closest; 
@@ -126,14 +146,16 @@ void Graph::getOrder() {
 
 int main () {
 	Graph g = Graph(); 
-	cout << "add vertex1" << endl;
-	g.add_vertex("CVS", 0, 1); 
-	cout << "add vertex2" << endl;
-	g.add_vertex("Marshalls", 0, 2);
-	cout << "add vertex3" << endl;
-	g.add_vertex("UPS", 0, 3);  
+	Time t = Time();
 
-	g.add_vertex("Bellas", 0, 4);  
+	cout << "add vertex1" << endl;
+	g.add_vertex(t, "Post Office", 0, 1); 
+	cout << "add vertex2" << endl;
+	g.add_vertex(t, "Baker", 0, 2);
+	cout << "add vertex3" << endl;
+	g.add_vertex(t, "Coop", 0, 3);  
+
+	g.add_vertex(t, "Walmart", 0, 4);  
 	g.getOrder(); 
 
 	// g.remove_vertex("UPS"); 
