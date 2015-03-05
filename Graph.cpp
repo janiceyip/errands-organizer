@@ -21,18 +21,31 @@ Graph::~Graph() {
 void Graph::add_vertex(Time t, string location, int visited, int time_to){
 	pair< set<place_vertex>::iterator,bool> ret;
 	set<place_vertex> s; 
-	placeNames location_name_1 = t.setPlace(location); 
+	placeNames location_name_2 = t.setPlace(location); 
 	int time_between; 
 		
 
 	//iterate over graph, adding the vertex to each of the adjacency lists 
 	for(auto iter = graph_container.begin(); iter != graph_container.end(); iter++) {
-		
+
+		// if (!iter->first._location.compare("Post Office")) {
+		// 	cout << "office" << endl; 
+		// 	placeNames location_name_1 = t.setPlace(iter->first._location); 
+		// 	cout << location_name_1 << ": " << location_name_2 << endl;
+
+		// 	time_between = t.getTime(location_name_1, location_name_2); 
+		// }
+			
+
 		//look up the time/distance between the places 
-		placeNames location_name_2 = t.setPlace(iter->first._location); 
+		placeNames location_name_1 = t.setPlace(iter->first._location); 
+		cout << location_name_1 << ": " << location_name_2 << endl;
+
 		time_between = t.getTime(location_name_1, location_name_2); 
 
-		cout << "time between " << location << " and " << iter->first._location << " is " << time_between << endl;
+		cout << "1: " << location_name_1 << " 2: " << location_name_2 << endl;
+
+		cout << "time between " << iter->first._location << " and " << location << " is " << time_between << endl;
 
 		place_vertex v = new_vertex(location, visited, time_between); 
 
@@ -48,7 +61,7 @@ void Graph::add_vertex(Time t, string location, int visited, int time_to){
 	
 	//home to new place
 
-	placeNames location_name_2 = t.setPlace("Home"); 
+	placeNames location_name_1 = t.setPlace("Home"); 
 	time_between = t.getTime(location_name_1, location_name_2); 
 
 	place_vertex v = new_vertex(location, visited, time_between); 
@@ -105,7 +118,7 @@ void Graph::printGraph() {
 
 	    typedef set<place_vertex>::const_iterator ListIterator;
 	    for (ListIterator list_iter = iter->second.begin(); list_iter != iter->second.end(); list_iter++)
-	        cout << " " << list_iter->_location << "timeto: " << list_iter->_time_to << endl;
+	        cout << " " << list_iter->_location << " timeto: " << list_iter->_time_to << endl;
 	}
 }
 
@@ -148,15 +161,24 @@ int main () {
 	Graph g = Graph(); 
 	Time t = Time();
 
-	cout << "add vertex1" << endl;
 	g.add_vertex(t, "Post Office", 0, 1); 
-	cout << "add vertex2" << endl;
+
 	g.add_vertex(t, "Baker", 0, 2);
-	cout << "add vertex3" << endl;
+
 	g.add_vertex(t, "Coop", 0, 3);  
 
 	g.add_vertex(t, "Walmart", 0, 4);  
-	g.getOrder(); 
+
+	g.add_vertex(t, "Boloco", 0, 5); 
+
+	placeNames one = t.setPlace("Post Office"); 
+	placeNames two = t.setPlace("Baker"); 
+	cout << one << ": " << two << endl;
+
+	int asdf = t.getTime(one, two); 
+	cout << "time: " << asdf << endl; 
+
+	// g.getOrder(); 
 
 	// g.remove_vertex("UPS"); 
 	// cout << "remove 2" << endl;
