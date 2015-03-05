@@ -12,6 +12,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdarg.h>
+#include <cfloat>
 #include <map>
 #include <set>
 #include "errands_org_globals.h"
@@ -24,7 +25,8 @@ struct place_vertex {
 	int _visited; 
 	float _time_to;
 	bool operator<(const place_vertex &a) const
-    	{ return _time_to < a._time_to; }
+    	{ return _location.compare(a._location); }
+    	// { return _time_to < a._time_to; }
 };
 
 // struct vertexComp {
@@ -38,8 +40,10 @@ class Graph {
 public:
 	Graph(); 
 	~Graph();
-	void add_vertex(string);
-	place_vertex new_vertex(string); 
+	void add_vertex(string, int, int);
+	void remove_vertex(string); 
+	place_vertex new_vertex(string, int, int); 
+	void getOrder(); 
 	void printGraph(); 
 	// void remove(string); 
 	// void printErrands(); 
