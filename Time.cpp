@@ -36,7 +36,7 @@ Time::Time() {
     travelTime[16] = 8;   // post office & coop
     travelTime[17] = 9;   // post office & boloco
     travelTime[18] = 11;   // post office & walmart
-    travelTime[19] = 5;  // post office & baker
+    travelTime[19] = 12;  // post office & baker
 }
 
 Time::Time(const Time& a) {
