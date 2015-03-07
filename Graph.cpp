@@ -114,6 +114,7 @@ void Graph::printGraph() {
 	// typedef map<place_vertex, set<place_vertex>, vertexComp>::const_iterator MapIterator;
 	for (map<place_vertex, set<place_vertex> >::const_iterator iter = graph_container.begin(); 
 		iter != graph_container.end(); iter++) {
+		cout << endl;
 	    cout << "Key: " << iter->first._location << endl << "Values:" << endl;
 
 	    typedef set<place_vertex>::const_iterator ListIterator;
