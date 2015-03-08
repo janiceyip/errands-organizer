@@ -30,24 +30,22 @@ void Graph::add_vertex(Time t, string location){
 		placeNames location_name_1 = t.setPlace(iter->first._location); 
 
 		time_between = t.getTime(location_name_1, location_name_2); 
-		cout << "time between " << iter->first._location << " and " << location << " is " << time_between << endl;
+		// cout << "time between " << iter->first._location << " and " << location << " is " << time_between << endl;
 
 		//create a new vertex and put it into the adjacency list 
 		place_vertex v = new_vertex(location, time_between); 
-
-		cout << "time between = " << v._time_to << endl;
 		ret = iter->second.insert(v); 
 
 		//insert the key vertices into a set 
-		s.insert(iter->first); 
+		place_vertex v_new = new_vertex(iter->first._location, time_between); 
+		s.insert(v_new); 
 	}
 	
 	//home to new place
-	cout << "Home" << endl;
 	placeNames location_name_1 = t.setPlace("Home"); 
-	time_between = t.getTime(location_name_1, location_name_2); 
+	int time_from_home = t.getTime(location_name_1, location_name_2); 
 
-	place_vertex v = new_vertex(location, time_between); 
+	place_vertex v = new_vertex(location, time_from_home); 
 	
 	pair<map <place_vertex, set<place_vertex> >::iterator,bool> ret2; 
 	ret2 = graph_container.insert(pair <place_vertex, set<place_vertex> >(v, s)); 
@@ -59,8 +57,6 @@ void Graph::add_vertex(Time t, string location){
 	// 	cout << "second time: " << iter->first._location << endl; 
 	// }
 
-	cout << "" << endl; 
-	printGraph(); 
 }
 
 

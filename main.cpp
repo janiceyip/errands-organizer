@@ -48,7 +48,6 @@ int main () {
 
 	Graph g = Graph(); 
 	Time t = Time();
-	t.printTime(); 
 
 	g.add_vertex(t, "Post Office"); 
 
@@ -60,12 +59,6 @@ int main () {
 
 	g.add_vertex(t, "Boloco"); 
 
-	placeNames one = t.setPlace("Post Office"); 
-	placeNames two = t.setPlace("Baker"); 
-	cout << one << ": " << two << endl;
-
-	int asdf = t.getTime(one, two); 
-	cout << "time: " << asdf << endl; 
 
 	// g.getOrder(); 
 
@@ -76,6 +69,4 @@ int main () {
 
 	cout << "\nPRINT GRAPH NOW" << endl;
 	g.printGraph(); 
-	// cout << g << endl; 
-	cout << "Started writing Graph program" << endl; 
 }
