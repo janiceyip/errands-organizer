@@ -7,7 +7,6 @@
 
 #include "Graph.h"
 #include "Time.h"
-#include "Time.cpp"
 
 Graph::Graph() {
 
@@ -156,38 +155,4 @@ void Graph::getOrder() {
 	}
 
 	cout << "Total time to complete these tasks: " << total_time << endl;
-}
-
-int main () {
-	Graph g = Graph(); 
-	Time t = Time();
-
-	g.add_vertex(t, "Post Office", 0, 1); 
-
-	g.add_vertex(t, "Baker", 0, 2);
-
-	g.add_vertex(t, "Coop", 0, 3);  
-
-	g.add_vertex(t, "Walmart", 0, 4);  
-
-	g.add_vertex(t, "Boloco", 0, 5); 
-
-	placeNames one = t.setPlace("Post Office"); 
-	placeNames two = t.setPlace("Baker"); 
-	cout << one << ": " << two << endl;
-
-	int asdf = t.getTime(one, two); 
-	cout << "time: " << asdf << endl; 
-
-	// g.getOrder(); 
-
-	// g.remove_vertex("UPS"); 
-	// cout << "remove 2" << endl;
-	// g.remove_vertex("Marshalls"); 
-	// g.remove_vertex("CVS"); 
-
-	cout << "\nPRINT GRAPH NOW" << endl;
-	g.printGraph(); 
-	// cout << g << endl; 
-	cout << "Started writing Graph program" << endl; 
 }
