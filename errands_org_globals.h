@@ -28,6 +28,17 @@ enum placeNames {
     _errands_pl_walmart,
     _errands_pl_baker,
     _errands_pl_hanover_post_office,
+    
+    _errands_pl_subway,
+    _errands_pl_bjs,
+    _errands_pl_bookstore,
+    _errands_pl_orient,
+    _errands_pl_laundromat,
+    _errands_pl_pine,
+    _errands_pl_mollys,
+    _errands_pl_yamas,
+    _errands_pl_starbucks,
+    _errands_pl_hospital,
     _errands_pl_size,
 };
 
