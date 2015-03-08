@@ -41,8 +41,8 @@ Time::Time() {
 
 Time::Time(const Time& a) {
     int i = 0;
-    // while (i < (_errands_pl_size*_errands_pl_size)/2 -1) {
-    while (i < 21) {
+    while (i < (_errands_pl_size *(_errands_pl_size+1))/2) {
+    //while (i < 21) {
         travelTime[i] = a.travelTime[i];
         i++;
     }
@@ -50,7 +50,8 @@ Time::Time(const Time& a) {
 
 void Time::printTime() {
     int i = 0; 
-    while (i < 21) {
+     while (i < (_errands_pl_size*(_errands_pl_size+1))/2) {
+    //while (i < 21) {
         cout << i << ": " << travelTime[i] << endl;
         i++;
     }
