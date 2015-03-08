@@ -17,53 +17,37 @@ Graph::~Graph() {
 
 }
 
-void Graph::add_vertex(Time t, string location, int visited, int time_to){
+void Graph::add_vertex(Time t, string location){
 	pair< set<place_vertex>::iterator,bool> ret;
 	set<place_vertex> s; 
 	placeNames location_name_2 = t.setPlace(location); 
 	int time_between; 
-		
 
 	//iterate over graph, adding the vertex to each of the adjacency lists 
 	for(auto iter = graph_container.begin(); iter != graph_container.end(); iter++) {
-
-		// if (!iter->first._location.compare("Post Office")) {
-		// 	cout << "office" << endl; 
-		// 	placeNames location_name_1 = t.setPlace(iter->first._location); 
-		// 	cout << location_name_1 << ": " << location_name_2 << endl;
-
-		// 	time_between = t.getTime(location_name_1, location_name_2); 
-		// }
-			
-
+	
 		//look up the time/distance between the places 
 		placeNames location_name_1 = t.setPlace(iter->first._location); 
-		cout << location_name_1 << ": " << location_name_2 << endl;
 
 		time_between = t.getTime(location_name_1, location_name_2); 
-
-		cout << "1: " << location_name_1 << " 2: " << location_name_2 << endl;
-
 		cout << "time between " << iter->first._location << " and " << location << " is " << time_between << endl;
 
-		place_vertex v = new_vertex(location, visited, time_between); 
+		//create a new vertex and put it into the adjacency list 
+		place_vertex v = new_vertex(location, time_between); 
 
+		cout << "time between = " << v._time_to << endl;
 		ret = iter->second.insert(v); 
-		// if (ret.second == false) 
-		// 	cout << "false" << endl;
-		// else 
-		// 	cout << "true: " << v._location << endl; 
 
 		//insert the key vertices into a set 
 		s.insert(iter->first); 
 	}
 	
 	//home to new place
-
+	cout << "Home" << endl;
 	placeNames location_name_1 = t.setPlace("Home"); 
 	time_between = t.getTime(location_name_1, location_name_2); 
 
-	place_vertex v = new_vertex(location, visited, time_between); 
+	place_vertex v = new_vertex(location, time_between); 
 	
 	pair<map <place_vertex, set<place_vertex> >::iterator,bool> ret2; 
 	ret2 = graph_container.insert(pair <place_vertex, set<place_vertex> >(v, s)); 
@@ -74,6 +58,9 @@ void Graph::add_vertex(Time t, string location, int visited, int time_to){
 	// for(auto iter = graph_container.begin(); iter != graph_container.end(); iter++) {
 	// 	cout << "second time: " << iter->first._location << endl; 
 	// }
+
+	cout << "" << endl; 
+	printGraph(); 
 }
 
 
@@ -100,10 +87,9 @@ void Graph::remove_vertex(string location) {
 
 
 
-place_vertex Graph::new_vertex(string location, int visited, int time_to) {
+place_vertex Graph::new_vertex(string location, int time_to) {
 	place_vertex v = place_vertex(); 
 	v._location = location; 
-	v._visited = visited; 
 	v._time_to = time_to; 
 	return v; 
 }

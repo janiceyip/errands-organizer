@@ -31,4 +31,4 @@ Person.o: Person.cpp
 	g++ -c Person.cpp
 
 clean: 
-	rm main *.o #*~
+	rm main Graph Time place Errand Cards person *.o 

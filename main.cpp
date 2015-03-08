@@ -48,17 +48,17 @@ int main () {
 
 	Graph g = Graph(); 
 	Time t = Time();
-	// t.printTime(); 
+	t.printTime(); 
 
-	g.add_vertex(t, "Post Office", 0, 1); 
+	g.add_vertex(t, "Post Office"); 
 
-	g.add_vertex(t, "Baker", 0, 2);
+	g.add_vertex(t, "Baker");
 
-	g.add_vertex(t, "Coop", 0, 3);  
+	g.add_vertex(t, "Coop");  
 
-	g.add_vertex(t, "Walmart", 0, 4);  
+	g.add_vertex(t, "Walmart");  
 
-	g.add_vertex(t, "Boloco", 0, 5); 
+	g.add_vertex(t, "Boloco"); 
 
 	placeNames one = t.setPlace("Post Office"); 
 	placeNames two = t.setPlace("Baker"); 
