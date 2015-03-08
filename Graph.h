@@ -42,9 +42,9 @@ class Graph {
 public:
 	Graph(); 
 	~Graph();
-	void add_vertex(Time, string, int, int);
+	void add_vertex(Time, string);
 	void remove_vertex(string); 
-	place_vertex new_vertex(string, int, int); 
+	place_vertex new_vertex(string, int); 
 	void getOrder(); 
 	void printGraph(); 
 	// void remove(string); 
