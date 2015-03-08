@@ -18,8 +18,3 @@ Person::Person(string name, string address) {
 Person::~Person() {
 
 }
-
-int main () {
-
-	cout << "Started writing program" << endl; 
-}
