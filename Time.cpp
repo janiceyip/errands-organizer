@@ -13,15 +13,31 @@
 #include "errands_org_globals.h"
 
 Time::Time() {
-// Diagonal
-    travelTime[0] = 0;
-    travelTime[2] = 0;
-    travelTime[5] = 0;
-    travelTime[9] = 0;
-    travelTime[14] = 0;
-    travelTime[20] = 0;
+    // for loop to set dummy distances
+    for (int i = 0;i < (_errands_pl_size *(_errands_pl_size+1))/2 ; i++) {
+        travelTime[i] = i;
+    }
+
+    // Diagonal
+    travelTime[0] = 0;  // home
+    travelTime[2] = 0;  //coop
+    travelTime[5] = 0;  // boloco
+    travelTime[9] = 0;  // walmart
+    travelTime[14] = 0; // baker
+    travelTime[20] = 0; // hanover PO
+    travelTime[27] = 0; // subway
+    travelTime[35] = 0; // bjs
+    travelTime[44] = 0; // bookstore
+    travelTime[54] = 0; // orient
+    travelTime[65] = 0; // laundromat
+    travelTime[77] = 0; // pine
+    travelTime[90] = 0; // mollys
+    travelTime[104] = 0; // yamas
+    travelTime[119] = 0; // starbucks
+    travelTime[135] = 0;    // hospital
     
-// distances
+    
+    // distances
     travelTime[1] = 1;   // home & coop
     travelTime[3] = 2;    // home & boloco
     travelTime[4] = 3;    // boloco & coop
@@ -37,6 +53,7 @@ Time::Time() {
     travelTime[17] = 9;   // post office & boloco
     travelTime[18] = 11;   // post office & walmart
     travelTime[19] = 12;  // post office & baker
+    
 }
 
 Time::Time(const Time& a) {
