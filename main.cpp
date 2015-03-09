@@ -18,24 +18,33 @@
 int main () {
 	//create the person 
 	Person p = Person("Heidi Baker", "Mozambique"); 
+	int max_time = 100;
+	int time_spent = 0;
 
 	//create the priority queue 
 	priority_queue<errand_node, vector<errand_node>, CompareErrands> pq;
+	Graph g = Graph(); 
+	Time t = Time();
 
 	//add errands to the queue 
-    // errand_node e1 = {_errands_org_groceries, 3}; 
-    // errand_node e2 = {_errands_org_post_office, 1}; 
-    // errand_node e3 = {_errands_org_shopping, 2};
+    errand_node groceries = {_errands_pl_coop, 3, 20}; 
+    errand_node po = {_errands_pl_post_office, 1, 30}; 
+    errand_node eat = {_errands_pl_boloco, 2, 50};
 
-    // pq.push(e1); 
-    // pq.push(e2); 
-    // pq.push(e3); 
+    pq.push(groceries); 
+    pq.push(po); 
+    pq.push(eat); 
     
-    // while (! pq.empty()) {
-    //    errand_node t2 = pq.top();
-    //    cout << setw(3) << t2.errandType << " " << setw(3) << t2.priority << endl;
-    //    pq.pop();
-    // }
+    while (! pq.empty() && (time_spent < max_time)) {
+        errand_node errand = pq.top();
+        cout << setw(3) << errand.errandPlace << " " << setw(3) << errand.priority << endl;
+
+       	g.add_vertex(t, t.toString(errand.errandPlace), errand.time_to_complete);
+
+
+
+        pq.pop();
+    }
 
 
 
@@ -46,18 +55,18 @@ int main () {
 
 
 
-	Graph g = Graph(); 
-	Time t = Time();
+	// Graph g = Graph(); 
+	// Time t = Time();
 
-	g.add_vertex(t, "Post Office"); 
+	// g.add_vertex(t, "Post Office"); 
 
-	g.add_vertex(t, "Baker");
+	// g.add_vertex(t, "Baker");
 
-	g.add_vertex(t, "Coop");  
+	// g.add_vertex(t, "Coop");  
 
-	g.add_vertex(t, "Walmart");  
+	// g.add_vertex(t, "Walmart");  
 
-	g.add_vertex(t, "Boloco"); 
+	// g.add_vertex(t, "Boloco"); 
 
 
 	// g.getOrder(); 
@@ -69,4 +78,6 @@ int main () {
 
 	cout << "\nPRINT GRAPH NOW" << endl;
 	g.printGraph(); 
+
+	g.getOrder(max_time, t);
 }

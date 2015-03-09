@@ -18,8 +18,9 @@
 using namespace std; 
 
 struct errand_node {
-	int errandType; 
+	placeNames errandPlace; 
 	int priority; 
+	int time_to_complete;
 };
 
 class CompareErrands {

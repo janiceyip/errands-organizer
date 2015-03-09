@@ -27,8 +27,7 @@ enum placeNames {
     _errands_pl_boloco,
     _errands_pl_walmart,
     _errands_pl_baker,
-    _errands_pl_hanover_post_office,
-    
+    _errands_pl_post_office,
     _errands_pl_subway,
     _errands_pl_bjs,
     _errands_pl_bookstore,
