@@ -114,7 +114,7 @@ string Time::toString(placeNames& a) {       // convert PlaceName to string
     }else if (a == 4) {
         return "Baker";
     }else if (a == 5) {
-        return "Hanover Post Office";
+        return "Post Office";
     } else {
         return "Invalid place";
     }
@@ -132,7 +132,7 @@ placeNames Time::setPlace(string select) {       // convert string to placeName
     }else if (select == "Baker") {
         return _errands_pl_baker;
     }else if (select == "Post Office"){
-        return _errands_pl_hanover_post_office;
+        return _errands_pl_post_office;
     }
     else {
         cout << "INVALID CITY ";

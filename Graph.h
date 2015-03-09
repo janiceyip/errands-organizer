@@ -24,8 +24,8 @@ using namespace std;
 
 struct place_vertex {
 	string _location;
-	int _visited; 
 	float _time_to;
+	int _time_to_complete_errand; 
 	bool operator<(const place_vertex &a) const
     	{ return _location.compare(a._location); }
     	// { return _time_to < a._time_to; }
@@ -42,10 +42,10 @@ class Graph {
 public:
 	Graph(); 
 	~Graph();
-	void add_vertex(Time, string);
+	void add_vertex(Time, string, int);
 	void remove_vertex(string); 
-	place_vertex new_vertex(string, int); 
-	void getOrder(); 
+	place_vertex new_vertex(string, int, int); 
+	void getOrder(int, Time); 
 	void printGraph(); 
 	// void remove(string); 
 	// void printErrands(); 
