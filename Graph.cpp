@@ -80,7 +80,7 @@ void Graph::remove_vertex(string location) {
 
 		    iter = graph_container.erase(iter); 
 			cout << "removed2 " << iter->first._location << " from keys" << endl;	    	
-
+			return; 
 	    }
 		else 
 			iter++; 

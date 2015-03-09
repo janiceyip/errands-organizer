@@ -38,7 +38,7 @@ enum placeNames {
     _errands_pl_yamas,
     _errands_pl_starbucks,
     _errands_pl_hospital,
-    _errands_pl_size,
+    _errands_pl_size
 };
 
 enum placeType {
