@@ -75,8 +75,13 @@ void Graph::remove_vertex(string location) {
 	    }
 
 	    //remove the vertex from the map's keys 
-	    if (!location.compare(iter->first._location))
+	    if (!location.compare(iter->first._location)) {
+			cout << "removed " << iter->first._location << " from keys" << endl;	    	
+
 		    iter = graph_container.erase(iter); 
+			cout << "removed2 " << iter->first._location << " from keys" << endl;	    	
+
+	    }
 		else 
 			iter++; 
 	}
@@ -130,10 +135,15 @@ void Graph::getOrder(int max_time, Time t) {
 	}
 
 	total_time += time_to; //get from home to first 
+	cout << "Time from home to " << closest_loc_from_home << " is " << time_to << ". Total time: " << total_time << endl; 
 	total_time += closest_vertex._time_to_complete_errand; //time to complete first errand 
+	cout << "Time to complete errand is " << closest_vertex._time_to_complete_errand << ". Total time: " << total_time << endl; 
 
 	//from that vertex, find next closest vertex 
+	int size1 = graph_container.size(); 
 	set<place_vertex> s = graph_container[closest_vertex]; 
+	if (size1 < graph_container.size())
+		cout << "??????????" << endl; 
 
 	//reset time_to 
 	time_to = FLT_MAX; 
@@ -144,37 +154,54 @@ void Graph::getOrder(int max_time, Time t) {
 
 		//go through list and find next place to go 
 	    for (set<place_vertex>::const_iterator list_iter = s.begin(); list_iter != s.end(); list_iter++){
+	    	cout << "ite" << endl;
 	    	if (list_iter->_time_to < time_to) {
 	    		time_to = list_iter->_time_to; 
 	    		closest_loc = list_iter->_location; 
 	    		closest_loc_time_complete = list_iter->_time_to_complete_errand; 
 	    	}
 	    }
-	        // cout << " " << list_iter->_location << " timeto: " << list_iter->_time_to << endl;
-
-	    if (num_locations == 1) {
-	    	remove_vertex(closest_loc_from_home); 
-	    }
+	    
+	   	remove_vertex(closest_loc_from_home); 
+	    
 
 	    placeNames location_name_1 = t.setPlace("Home"); 
 	    placeNames location_name_2 = t.setPlace(closest_vertex._location); 
 		int time_from_home = t.getTime(location_name_1, location_name_2); 
 
 	    place_vertex next_place = new_vertex(closest_loc, time_from_home, closest_loc_time_complete); 
+	    cout << "closest_loc: " << closest_loc << endl;
 
-	    s = graph_container[closest_vertex]; 
+	    int size = graph_container.size(); 
+	    s = graph_container[next_place]; 
+
+
+	    for (set<place_vertex>::const_iterator list_iter = s.begin(); list_iter != s.end(); list_iter++){
+	    	cout << "in iterator" << endl;
+	    	if (list_iter->_time_to < time_to) {
+	    		time_to = list_iter->_time_to; 
+	    		closest_loc = list_iter->_location; 
+	    		closest_loc_time_complete = list_iter->_time_to_complete_errand; 
+	    	}
+	    }
 
 		//remove that vertex 
-		remove_vertex(closest_loc); 
+		// remove_vertex(closest_loc); 
+		closest_loc_from_home = closest_loc; 
 		total_time += time_to; 
+		cout << "Time to " << closest_loc_from_home << " is " << time_to << ". Total time: " << total_time << endl; 
 		total_time += closest_loc_time_complete; 
-		cout << time_to << " " << closest_loc_time_complete << endl; 
-		cout << "closest: " << closest_loc << " time to: " << time_to << endl;		
-
+		cout << "Time to complete errand is " << closest_loc_time_complete << ". Total time: " << total_time << endl; 
+	
+		// cout << time_to << " " << closest_loc_time_complete << endl; 
+		// cout << "closest: " << closest_loc << " time to: " << time_to << endl;		
+		// cout << "total_time: " << total_time << endl;
 
 		//reset for next vertex
 		time_to = FLT_MAX; 
 		num_locations++; 
+
+		printGraph(); 
 
 	}
 

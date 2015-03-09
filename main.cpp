@@ -28,20 +28,22 @@ int main () {
 
 	//add errands to the queue 
     errand_node groceries = {_errands_pl_coop, 3, 20}; 
-    errand_node po = {_errands_pl_post_office, 1, 30}; 
-    errand_node eat = {_errands_pl_boloco, 2, 50};
+    // errand_node po = {_errands_pl_post_office, 4, 30}; 
+    errand_node eat = {_errands_pl_boloco, 1, 50};
+    errand_node	shop = {_errands_pl_walmart, 2, 10}; 
+    errand_node read = {_errands_pl_baker, 6, 30};
 
     pq.push(groceries); 
-    pq.push(po); 
+    // pq.push(po); 
     pq.push(eat); 
+    pq.push(shop); 
+    pq.push(read);
     
     while (! pq.empty() && (time_spent < max_time)) {
         errand_node errand = pq.top();
         cout << setw(3) << errand.errandPlace << " " << setw(3) << errand.priority << endl;
 
        	g.add_vertex(t, t.toString(errand.errandPlace), errand.time_to_complete);
-
-
 
         pq.pop();
     }
@@ -52,7 +54,7 @@ int main () {
 
 
 
-
+	// cout << "here" << endl;
 
 
 	// Graph g = Graph(); 
