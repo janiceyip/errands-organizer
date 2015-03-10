@@ -99,7 +99,7 @@ void Time::setTime (placeNames& a, placeNames& b, int time) {   // set distance
 
 
 int Time::getTime(placeNames& a, placeNames& b){        //get distance
-    if (a != _errands_pl_size && b!= _errands_pl_size) {      // check if valid place name entered by checking if bounds
+    if ((a != b) && (a != _errands_pl_size && b!= _errands_pl_size)) {      // check if valid place name entered by checking if bounds
         int i = a;              // set i to CityName a
         int j = b;              // set j to CityName b
         if (j > i) {    // if index in upper triangular region of matrix, swap i and j
@@ -133,6 +133,7 @@ string Time::toString(placeNames& a) {       // convert PlaceName to string
     }else if (a == 5) {
         return "Post Office";
     } else {
+        
         return "Invalid place";
     }
 }
@@ -150,11 +151,40 @@ placeNames Time::setPlace(string select) {       // convert string to placeName
         return _errands_pl_baker;
     }else if (select == "Post Office"){
         return _errands_pl_post_office;
+    }else if (select == "Subway") {
+        return _errands_pl_subway;
+    }else if (select == "BJs") {
+        return _errands_pl_bjs;
+    }else if (select == "Bookstore") {
+        return _errands_pl_bookstore;
+    }else if (select == "Orient") {
+        return _errands_pl_orient;
+    }else if (select == "Laundromat") {
+        return _errands_pl_laundromat;
+    }else if (select == "Pine") {
+        return _errands_pl_pine;
+    }else if (select == "Mollys") {
+        return _errands_pl_mollys;
+    }else if (select == "Yamas") {
+        return _errands_pl_yamas;
+    }else if (select == "Starbucks") {
+        return _errands_pl_starbucks;
+    }else if (select == "hospital") {
+        return _errands_pl_hospital;
     }
     else {
-        cout << "INVALID CITY ";
+        cout << "Invalid place name!";
         return _errands_pl_size;             //
     }
 }
 
-// int main() {}
+//int Time::operator[](const string[2] vectInput) {
+int Time::operator[](const string vectInput[2]) {
+    placeNames start;
+    placeNames destination;
+    
+    start = setPlace( vectInput[0] );
+    destination = setPlace(vectInput[1]);
+    return getTime(start, destination);
+}
+

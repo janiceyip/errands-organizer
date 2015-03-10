@@ -28,7 +28,7 @@ struct place_vertex {
 	int _time_to_complete_errand; 
 	bool operator<(const place_vertex &a) const
     	{ return _location.compare(a._location); }
-    	// { return _time_to < a._time_to; }
+    	// { return _time_to < a._time_to;
     
 };
 

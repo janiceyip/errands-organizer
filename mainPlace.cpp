@@ -46,7 +46,7 @@ int main(int argc, const char * argv[]) {
     placeNames home = _errands_pl_home;
     placeNames boloco = _errands_pl_boloco;
     placeNames walmart = _errands_pl_walmart;
-    placeNames hanoverPO = _errands_pl_hanover_post_office;
+    placeNames hanoverPO = _errands_pl_post_office;
     placeNames baker = _errands_pl_baker;
     
     int newTime;
@@ -278,6 +278,14 @@ int main(int argc, const char * argv[]) {
     cout << "";
     cout << "Print Time t2" << endl;
     t2.printTime();
+    
+    cout << "random" << endl;
+    
+    cout << "" << endl;
+    
+    string tempVector[2] = {"Boloco", "Walmart"};
+    cout << "random" << endl;
+    cout << "TEST [] Overload: "<<t[tempVector] << endl;
     
     return 0;
     
