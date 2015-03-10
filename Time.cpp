@@ -132,8 +132,27 @@ string Time::toString(placeNames& a) {       // convert PlaceName to string
         return "Baker";
     }else if (a == 5) {
         return "Post Office";
+    }else if (a == 6) {
+        return "Subway";
+    }else if (a == 7) {
+        return "BJs";
+    }else if (a == 8) {
+        return "Bookstore";
+    }else if (a == 9) {
+        return "Orient";
+    }else if (a == 10) {
+        return "Laundromat";
+    }else if (a == 11) {
+        return "Pine";
+    }else if (a == 12) {
+        return "Mollys";
+    }else if (a == 13) {
+        return "Yamas";
+    }else if (a == 14) {
+        return "Starbucks";
+    }else if (a == 15) {
+        return "Hospital";
     } else {
-        
         return "Invalid place";
     }
 }
@@ -169,7 +188,7 @@ placeNames Time::setPlace(string select) {       // convert string to placeName
         return _errands_pl_yamas;
     }else if (select == "Starbucks") {
         return _errands_pl_starbucks;
-    }else if (select == "hospital") {
+    }else if (select == "Hospital") {
         return _errands_pl_hospital;
     }
     else {
