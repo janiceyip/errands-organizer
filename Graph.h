@@ -29,6 +29,7 @@ struct place_vertex {
 	bool operator<(const place_vertex &a) const
     	{ return _location.compare(a._location); }
     	// { return _time_to < a._time_to; }
+    
 };
 
 // struct vertexComp {
