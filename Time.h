@@ -15,6 +15,7 @@
 #include <iostream>
 #include <map>
 #include "errands_org_globals.h"
+#include <vector>
 
 class Time {
 private:
@@ -29,7 +30,9 @@ public:
     int numPlaces();            // return # places in adjacency matrix
     string toString(placeNames& a);
     placeNames setPlace(string a);
-    void printTime(); 
+    void printTime();
+    //int operator[](const vector<string>);
+    int operator[](const string vectInput[2]);
 };
 
 #endif /* defined(__errands_organizer_jc__Time__) */
