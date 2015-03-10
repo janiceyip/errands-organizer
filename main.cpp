@@ -63,9 +63,9 @@ int main () {
 	        	locations[0] = errand1._location; 
 	        	locations[1] = errand2._location; 
 
-	        	// int time_between = t[locations]; 
+	        	int time_between = t[locations]; 
 
-	        	int time_between = 5; 
+	        	// int time_between = 5; 
 
 	        	//get distance between 
 	        	if (time_between < time_to) {
