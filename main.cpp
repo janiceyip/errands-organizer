@@ -20,18 +20,10 @@ int main () {
 	//create the person 
 	Person p = Person("Heidi Baker", "Mozambique"); 
 	int max_time = 130;
-	// int time_spent = 0;
-	// int priority, errand_time; 
-	// string locations[2]; 
-	// errand_node errand1 = {"", 0, INT_MAX};  
-	// errand_node errand2, closest_errand; 
-	// bool run_all = false; 
-	// bool run_priority = false; 
-
 
 	//create the priority queue 
 	priority_queue<errand_node, vector<errand_node>, CompareErrands> pq1;
-	// Graph g = Graph(); 
+
 	Time t = Time();
 
 	//add errands to the queue 
@@ -51,7 +43,6 @@ int main () {
 
     cout << "Your max time: " << max_time << endl; 
     bool enough = enoughTime(pq1, t, max_time); 
-    cout << enough << endl; 
 
     if (enough) {
     	runAll(pq1, t, max_time);
