@@ -22,12 +22,13 @@ int main () {
 	int max_time = 100;
 	int time_spent = 0;
 	int priority, errand_time; 
+	string locations[2]; 
 
 	//create the priority queue 
 	priority_queue<errand_node, vector<errand_node>, CompareErrands> pq1;
 	priority_queue<errand_node, vector<errand_node>, CompareErrands> pq2; 
 	// Graph g = Graph(); 
-	// Time t = Time();
+	Time t = Time();
 
 	//add errands to the queue 
 	errand_node home = {"Home", 1, 0}; 
@@ -59,7 +60,10 @@ int main () {
 	        	pq1.pop(); 
 	        	pq2.push(errand2); 
 
-	        	// int time_between = matrix[errand1._location, errand2._location]; 
+	        	locations[0] = errand1._location; 
+	        	locations[1] = errand2._location; 
+
+	        	// int time_between = t[locations]; 
 
 	        	int time_between = 5; 
 
