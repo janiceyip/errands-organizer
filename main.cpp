@@ -19,10 +19,12 @@
 int main () {
 	//create the person 
 	Person p = Person("Heidi Baker", "Mozambique"); 
-	int max_time = 100;
+	int max_time = 130;
 	int time_spent = 0;
 	int priority, errand_time; 
 	string locations[2]; 
+	errand_node errand1 = {"", 0, INT_MAX};  
+	errand_node errand2, closest_errand; 
 
 	//create the priority queue 
 	priority_queue<errand_node, vector<errand_node>, CompareErrands> pq1;
@@ -32,47 +34,53 @@ int main () {
 
 	//add errands to the queue 
 	errand_node home = {"Home", 1, 0}; 
-    errand_node groceries = {"Coop", 3, 20}; 
-    errand_node po = {"Post Office", 4, 30}; 
-    errand_node eat = {"Boloco", 10, 50};
-    errand_node	shop = {"Walmart", 8, 10}; 
-    errand_node read = {"Baker", 6, 30};
+    errand_node groceries = {"Coop", 2, 20}; 
+    errand_node eat = {"Boloco", 3, 50};
+    errand_node	shop = {"Walmart", 4, 10}; 
+    errand_node read = {"Baker", 5, 30};
+    errand_node po = {"Post Office", 6, 30}; 
 
     pq1.push(home); 
     pq1.push(groceries); 
-    pq1.push(po); 
     pq1.push(eat); 
     pq1.push(shop); 
     pq1.push(read);
+    pq1.push(po); 
 
     while (! pq1.empty() && (time_spent < max_time)) {
     	int time_to = INT_MAX; 
     	string closest; 
 
         //grab the first errand 
-        errand_node errand1 = pq1.top();
+        if (errand1._time_to_complete == INT_MAX) {
+        	errand1 = pq1.top();
+        	pq1.pop();
+        }
+	        
+        // cout << "1: " << errand1._location << endl; 
+        priority = errand1._priority; 
         // cout << setw(3) << errand1.errandPlace << " " << setw(3) << errand1.priority << endl;
-        pq1.pop(); 
+         
 
         if (!pq1.empty()) {
         	while (!pq1.empty()) {
-	        	errand_node errand2 = pq1.top(); 
+	        	errand2 = pq1.top(); 
+        		// cout << "2: " << errand2._location << endl; 
+
 	        	pq1.pop(); 
 	        	pq2.push(errand2); 
 
 	        	locations[0] = errand1._location; 
 	        	locations[1] = errand2._location; 
-
 	        	int time_between = t[locations]; 
-
-	        	// int time_between = 5; 
 
 	        	//get distance between 
 	        	if (time_between < time_to) {
 	        		time_to = time_between; 
 	        		closest = errand2._location; 
-	        		priority = errand2._priority; 
+	        		// priority = errand2._priority; 
 	        		errand_time = errand2._time_to_complete; 
+	        		closest_errand = errand2; 
 	        	}
 
 	        }
@@ -83,15 +91,34 @@ int main () {
 
         time_spent += time_to; 
         time_spent += errand_time; 
-        cout << "priority: " << priority << endl; 
-        cout << "Time to: " << time_to << " + errand time: " << errand_time << " = " << time_spent << endl; 
 
-        while (!pq2.empty()) {
-        	pq1.push(pq2.top()); 
-        	pq2.pop(); 
+        if (time_spent < max_time) {
+	        // cout << "priority: " << priority << endl; 
+	        cout << "Go from " << errand1._location << " to " << closest << endl; 
+	        cout << "  " << time_to << " to get there + " << errand_time << " to do the errand = " << time_spent << endl;         	
+        } else {
+        	// cout << "Sorry, you don't have time to do any more tasks" << endl; 
         }
 
-        cout << pq1.size() << endl; 
+
+		errand1 = closest_errand; 
+        // cout << "out: " << errand1._location << endl;
+
+        
+        while (!pq2.empty()) {
+
+        	if (closest.compare(pq2.top()._location)) {
+        		// cout << "found" << endl; 
+        		pq1.push(pq2.top()); 
+        		pq2.pop(); 
+        	} else {
+        		pq2.pop(); 
+        	}
+        }
+
+        
+
+        // cout << pq1.size() << endl; 
     }
 
 
