@@ -48,6 +48,9 @@ int main(int argc, const char * argv[]) {
     placeNames walmart = _errands_pl_walmart;
     placeNames hanoverPO = _errands_pl_post_office;
     placeNames baker = _errands_pl_baker;
+    placeNames subway = _errands_pl_subway;
+    placeNames hospital = _errands_pl_hospital;
+    
     
     int newTime;
     Time t;             // construct adjacency matrix t
@@ -275,12 +278,20 @@ int main(int argc, const char * argv[]) {
     cout << "Travel time between " + t2.toString(hanoverPO)+ " and " + t2.toString(baker) + " : ";
     cout << t2.getTime(hanoverPO, baker) << endl;
     
-    cout << "";
+    
+    cout << "HOSPITAL"<< endl;
+    cout << "Travel time between " + t2.toString(subway)+ " and " + t2.toString(hospital) + " : ";
+    cout << t2.getTime(subway, hospital) << endl;
+    cout << "Travel time between " + t2.toString(hanoverPO)+ " and " + t2.toString(subway) + " : ";
+    cout << t2.getTime(hospital, subway) << endl;
+    
+    cout << ""<< endl;
     cout << "Print Time t2" << endl;
     t2.printTime();
+  
     
-    cout << "random" << endl;
-    
+    cout << ""<< endl;
+    cout << "TEST [] overload" << endl;
     cout << "" << endl;
     
     string tempVector[2] = {"Boloco", "Walmart"};
