@@ -18,9 +18,9 @@
 using namespace std; 
 
 struct errand_node {
-	placeNames errandPlace; 
-	int priority; 
-	int time_to_complete;
+	string _location; 
+	int _priority; 
+	int _time_to_complete;
 };
 
 class CompareErrands {
@@ -28,6 +28,7 @@ public:
 	// ErrandsList(); 
 	// ~ErrandsList();
 	bool operator()(errand_node& e1, errand_node& e2); 
+	errand_node getNext(); 
 };
 
 #endif /* COMPAREERRANDS_H_ */

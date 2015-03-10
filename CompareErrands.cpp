@@ -10,8 +10,11 @@
 
 bool CompareErrands::operator()(errand_node& e1, errand_node& e2)
 {
-	if (e1.priority > e2.priority) return true;
+	if (e1._priority > e2._priority) return true;
 	else return false;
 }
 
+// errand_node CompareErrands::getNext() {
+
+// }
 
