@@ -145,6 +145,8 @@ void Graph::getOrder(int max_time, Time t) {
 	if (size1 < graph_container.size())
 		cout << "??????????" << endl; 
 
+	printGraph(); 
+
 	//reset time_to 
 	time_to = FLT_MAX; 
 	num_locations++; 
@@ -174,7 +176,9 @@ void Graph::getOrder(int max_time, Time t) {
 
 	    int size = graph_container.size(); 
 	    s = graph_container[next_place]; 
-
+	    if (size < graph_container.size()) {
+	    	cout << "+++++++++++" << endl;
+	    }
 
 	    for (set<place_vertex>::const_iterator list_iter = s.begin(); list_iter != s.end(); list_iter++){
 	    	cout << "in iterator" << endl;
