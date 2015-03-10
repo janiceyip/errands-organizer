@@ -12,8 +12,8 @@ all: main
 
 # To create the executable file count we need the object files
 #
-main: main.o CompareErrands.o Graph.o Time.o Person.o
-	g++ main.o CompareErrands.o Graph.o Time.o Person.o -o main
+main: main.o CompareErrands.o Graph.o Time.o Person.o RunErrands.o
+	g++ main.o CompareErrands.o Graph.o Time.o Person.o RunErrands.o -o main
 
 main.o: main.cpp
 	g++ -c main.cpp
@@ -29,6 +29,9 @@ Time.o: Time.cpp
 
 Person.o: Person.cpp
 	g++ -c Person.cpp
+
+RunErrands.o: RunErrands.cpp
+	g++ -c RunErrands.cpp
 
 clean: 
 	rm main Graph Time place Errand Cards person *.o 
