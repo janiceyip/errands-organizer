@@ -1,10 +1,9 @@
-//
-//  main.cpp
-//  
-//
-//  Created by James Chin on 2/14/15.
-//
-//
+/*
+ * main.cpp
+ *
+ *  Created on: Feb 24, 2015
+ *      Author: James Chin, Janice Yip
+ */
 
 #include <stdio.h>
 #include <climits>
@@ -19,7 +18,7 @@
 int main () {
 	//create the person 
 	Person p = Person("Heidi Baker", "Mozambique"); 
-	int max_time = 130;
+	int max_time = 230;
 	int time_spent = 0;
 	int priority, errand_time; 
 	string locations[2]; 
@@ -46,6 +45,8 @@ int main () {
     pq1.push(shop); 
     pq1.push(read);
     pq1.push(po); 
+
+    cout << "Your max time: " << max_time << endl; 
 
     while (! pq1.empty() && (time_spent < max_time)) {
     	int time_to = INT_MAX; 
@@ -116,11 +117,18 @@ int main () {
         	}
         }
 
-        
-
-        // cout << pq1.size() << endl; 
     }
 
+    if (time_spent < max_time) {
+    	locations[0] = errand1._location; 
+    	locations[1] = "Home"; 
+    	int time_between = t[locations]; 
+
+    	time_spent += time_between; 
+    	if (time_spent < max_time) {
+    		cout << "You can even go home, which will take you " << time_between << ", for a total of " << time_spent << endl;
+    	}
+    }
 
 
     // while (! pq.empty() && (time_spent < max_time)) {
