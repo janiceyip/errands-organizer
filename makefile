@@ -3,17 +3,12 @@
 CC = g++
 CFLAGS  = -g -Wall
 
-# typing 'make' will invoke the first target entry in the file 
-# (in this case the default target entry)
-# you can name this target entry anything, but "default" or "all"
-# are the most commonly used names by convention
-#
+
 all: main
 
 # To create the executable file count we need the object files
-#
-main: main.o CompareErrands.o Graph.o Time.o Person.o RunErrands.o
-	g++ main.o CompareErrands.o Graph.o Time.o Person.o RunErrands.o -o main
+main: main.o CompareErrands.o Time.o Person.o RunErrands.o
+	g++ main.o CompareErrands.o Time.o Person.o RunErrands.o -o main
 
 main.o: main.cpp
 	g++ -c main.cpp
@@ -34,4 +29,4 @@ RunErrands.o: RunErrands.cpp
 	g++ -c RunErrands.cpp
 
 clean: 
-	rm main Graph Time place Errand Cards person *.o 
+	rm main Graph Time place Errand Cards person ErrandsList *.o 

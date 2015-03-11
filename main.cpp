@@ -8,23 +8,16 @@
 #include <stdio.h>
 #include <climits>
 #include <string>
-#include <sstream>
-#include <algorithm>
 #include <iterator>
 #include <vector>
 #include <iostream>
 #include "Cards.h" 
-#include "CompareErrands.h"
-#include "Errand.h" 
-#include "Graph.h"
+#include "CompareErrands.h" 
 #include "Person.h"
-#include "place.h"
 #include "Time.h"
 #include "RunErrands.h"
 
-void Tokenize(const string& str,
-                      vector<string>& tokens,
-                      const string& delimiters = " ")
+void Tokenize(const string& str, vector<string>& tokens, const string& delimiters = " ")
 {
     // Skip delimiters at beginning.
     string::size_type lastPos = str.find_first_not_of(delimiters, 0);
@@ -41,13 +34,6 @@ void Tokenize(const string& str,
         pos = str.find_first_of(delimiters, lastPos);
     }
 }
-
-// void print( vector <string> & v )
-// {
-//   for (size_t n = 0; n < v.size(); n++)
-//     cout << "\"" << v[ n ] << "\"\n";
-//   cout << endl;
-// }
 
 int main () {
 	//create the person 
