@@ -21,9 +21,8 @@ int main () {
 	Person p = Person("Heidi Baker", "Mozambique"); 
 	int max_time = 160;
 
-	//create the priority queue 
+	//create the priority queue and time/distance matrix
 	priority_queue<errand_node, vector<errand_node>, CompareErrands> pq1;
-
 	Time t = Time();
 
 	//add errands to the queue 
