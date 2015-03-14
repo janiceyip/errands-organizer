@@ -65,10 +65,12 @@ int enoughTime(priority_queue<errand_node, vector<errand_node>, CompareErrands> 
         time_spent += time_to; 
         time_spent += errand_time; 
 
+
         //if it's too much time, get out 
-        if (time_spent > max_time) break; 
-        //otherwise, set highest priority 
-	    errands_can_run = errand2._priority;         	
+        if (time_spent > max_time) break;
+
+        //set highest priority 
+        errands_can_run = errand2._priority;
 
 		errand1 = closest_errand; 
         

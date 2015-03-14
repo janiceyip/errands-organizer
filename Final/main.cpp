@@ -38,7 +38,7 @@ void Tokenize(const string& str, vector<string>& tokens, const string& delimiter
 int main () {
 	//create the person 
 	// Person p = Person("Heidi Baker", "Mozambique"); 
-	int max_time = 160;
+	int max_time = 120;
     string input = "";
     string input_errand = ""; 
 
